@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios y Arriendos - Ferretería</title>
+    <link rel="stylesheet" href="../dashboard.css">
+
+    <link rel="stylesheet" href="servicios.css">
+</head>
+<body>
+    <div class="dashboard-layout">
+        <!-- Menú Lateral Vertical -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>FerroStock</h2>
+                <p class="user-role">Módulo Servicios</p>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="../dashboard.html" class="nav-item">🏠 Inicio / Dashboard</a>
+                <a href="../Productos/productos.html" class="nav-item">📦 Productos</a>
+                <a href="../Inventario/inventario.html" class="nav-item">🏭 Inventario</a>
+                <a href="../Despacho/despacho.html" class="nav-item">🚚 Despachos</a>
+                <a href="servicios.html" class="nav-item active">🛠️ Servicios</a>
+                <a href="../Reporte/reporte.html" class="nav-item">📊 Reportes</a>
+                <a href="../Usuarios/usuarios.html" class="nav-item">👥 Usuarios</a>
+            </nav>
+        </aside>
+
+    <main class="container">
+        <section class="card">
+            <h2>Solicitud de Servicio de Arriendo de Maquinaria</h2>
+            <form id="form-servicio">
+                <div class="form-group">
+                    <label for="cliente">Nombre del Cliente:</label>
+                    <input type="text" id="cliente" placeholder="Nombre completo">
+                </div>
+
+                <div class="form-group">
+                    <label for="tipo-servicio">Tipo de Herramienta/Maquinaria:</label>
+                    <select id="tipo-servicio">
+                        <option value="">-- Seleccionar --</option>
+                        <option value="Taladro Industrial">Taladro Industrial</option>
+                        <option value="Betonera">Betonera 130L</option>
+                        <option value="Generador Eléctrico">Generador Eléctrico</option>
+                        <option value="Corta Setos">Corta Setos a Nafta</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="dias">Días de Arriendo (1 - 30 días):</label>
+                    <input type="number" id="dias" placeholder="Ej: 3">
+                </div>
+
+                <div class="form-group">
+                    <label for="telefono">Teléfono de Contacto (9 dígitos):</label>
+                    <input type="text" id="telefono" placeholder="Ej: 912345678">
+                </div>
+
+                <div id="error-msg" class="error-msg"></div>
+                <button type="submit" class="btn-primary">Solicitar Arriendo</button>
+            </form>
+        </section>
+
+        <section class="card mt-2">
+            <h2>Servicios Activos</h2>
+            <ul id="lista-servicios">
+                <!-- Se llena dinámicamente -->
+            </ul>
+        </section>
+    </main>
+
+    <!-- Modal Informativo -->
+    <div id="modal-servicio" class="modal">
+        <div class="modal-content">
+            <h3>Solicitud Confirmada</h3>
+            <p id="modal-detalle"></p>
+            <button id="btn-cerrar-modal" class="btn-primary">Entendido</button>
+        </div>
+    </div>
+
+    <script src="servicios.js"></script>
+</body>
+</html>
