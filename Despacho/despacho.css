@@ -1,40 +1,102 @@
-/* Tarjetas blancas del módulo */
-.tarjeta {
-  background: white;
-  padding: 24px;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  margin-bottom: 24px;
-  max-width: 900px;
-}
-.tarjeta h2 { margin-bottom: 16px; color: #1e293b; }
 
-/* Campos del formulario */
-.campo { margin-bottom: 14px; display: flex; flex-direction: column; }
-.campo label { font-weight: bold; margin-bottom: 4px; }
-.campo input, .campo select {
-  padding: 8px;
-  border: 1px solid #bbb;
-  border-radius: 4px;
-  font-size: 14px;
+.btn-back { 
+    color: white; 
+    text-decoration: none; 
+    background: #34495e; 
+    padding: 0.5rem 1rem; 
+    border-radius: 4px; 
 }
-.campo input.invalido { border-color: #c62828; }
-.error { color: #c62828; font-size: 12px; min-height: 14px; }
 
-/* Botón */
-.btn {
-  background: #2e7d32;
-  color: white;
-  border: none;
-  padding: 10px 18px;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 14px;
+.container {
+    padding: 2rem;
+    width: 100%;
+    max-width: 100%; /* Permite expandirse a todo el ancho del contenedor principal */
+    margin: 0;
 }
-.btn:hover { background: #1b5e20; }
 
-/* Tabla */
-.tabla-scroll { overflow-x: auto; }
-table { width: 100%; border-collapse: collapse; }
-th, td { padding: 10px; text-align: left; border-bottom: 1px solid #ddd; }
-th { background: #eef1f5; }
+.card { 
+    background: white; 
+    padding: 1.5rem; 
+    border-radius: 8px; 
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); 
+}
+
+.mt-2 { 
+    margin-top: 1.5rem; 
+}
+
+.form-group { 
+    margin-bottom: 1rem; 
+    display: flex; 
+    flex-direction: column; 
+}
+
+.form-group label { 
+    margin-bottom: 0.3rem; 
+    font-weight: bold; 
+}
+
+.form-group input, .form-group select { 
+    padding: 0.6rem; 
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+}
+
+.btn-primary { 
+    background: #e67e22; 
+    color: white; 
+    border: none; 
+    padding: 0.7rem 1.5rem; 
+    cursor: pointer; 
+    border-radius: 4px; 
+    font-weight: bold; 
+}
+
+.btn-primary:hover { 
+    background: #d35400; 
+}
+
+.error-msg { 
+    color: #e74c3c; 
+    margin-bottom: 1rem; 
+    font-size: 0.9rem; 
+    font-weight: bold; 
+}
+
+table { 
+    width: 100%; 
+    border-collapse: collapse; 
+    margin-top: 1rem; 
+}
+
+th, td { 
+    border: 1px solid #ddd; 
+    padding: 0.75rem; 
+    text-align: left; 
+}
+
+th { 
+    background-color: #ecf0f1; 
+}
+/* Estilo de la modal */
+.modal { 
+    display: none; 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+    background: rgba(0,0,0,0.5); 
+    justify-content: center; 
+    align-items: center; 
+}
+
+.modal-content { 
+    background: white; padding: 2rem; border-radius: 8px; text-align: center; max-width: 400px; 
+}
+.modal-content h3 { 
+    margin-bottom: 1rem; color: #27ae60; 
+}
+.modal-content p { 
+    margin-bottom: 1.5rem; 
+}
