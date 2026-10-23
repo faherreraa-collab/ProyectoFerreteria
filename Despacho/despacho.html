@@ -1,102 +1,95 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Despacho | Inventario Ferretería</title>
-  <!-- Primero el CSS del dashboard (menú lateral), luego el propio -->
-  <link rel="stylesheet" href="../dashboard.css">
-  <link rel="stylesheet" href="despacho.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Despachos - Ferretería</title>
+    <link rel="stylesheet" href="despacho.css">
+
+    <link rel="stylesheet" href="../dashboard.css">
 </head>
 <body>
+    <div class="dashboard-layout">
+        <!-- Menú Lateral Vertical -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>FerroStock</h2>
+                <p class="user-role">Módulo Despachos</p>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="../dashboard.html" class="nav-item">🏠 Inicio / Dashboard</a>
+                <a href="../Productos/productos.html" class="nav-item">📦 Productos</a>
+                <a href="../Inventario/inventario.html" class="nav-item">🏭 Inventario</a>
+                <a href="despacho.html" class="nav-item active">🚚 Despachos</a>
+                <a href="../Servicios/servicios.html" class="nav-item">🛠️ Servicios</a>
+                <a href="../Reporte/reporte.html" class="nav-item">📊 Reportes</a>
+                <a href="../Usuarios/usuarios.html" class="nav-item">👥 Usuarios</a>
+            </nav>
+        </aside>
 
-  <!-- Mismo menú del dashboard, con ../ para salir de la carpeta Despacho -->
-  <nav class="sidebar">
-    <h2>Sistema de Ferreteria</h2>
-    <div class="menu">
-      <a href="../dashboard.html">Inicio</a>
-      <a href="../registro.html">Registrar Usuario</a>
-      <a href="../login.html">Login</a>
-      <a href="../Usuarios/usuarios.html">Usuarios</a>
-      <a href="../Inventario/inventario.html">Inventario</a>
-      <a href="../Productos/productos.html">Productos</a>
-      <a href="../Servicios/servicios.html">Servicios</a>
-      <a href="../Reporte/reporte.html">Reporte</a>
-      <a href="despacho.html">Despacho</a>
-      <a href="../cierre.html">Cerrar Sesión</a>
+    <main class="container">
+        <section class="card">
+            <h2>Registrar Envío de Pedido</h2>
+            <form id="form-despacho">
+                <div class="form-group">
+                    <label for="num-orden">Número de Orden (Min 4 caracteres):</label>
+                    <input type="text" id="num-orden" placeholder="Ej: ORD-1001">
+                </div>
+
+                <div class="form-group">
+                    <label for="direccion">Dirección de Entrega:</label>
+                    <input type="text" id="direccion" placeholder="Ej: Av. Principal 123">
+                </div>
+
+                <div class="form-group">
+                    <label for="comuna">Comuna / Región:</label>
+                    <select id="comuna">
+                        <option value="">-- Seleccione Comuna --</option>
+                        <option value="Santiago">Santiago</option>
+                        <option value="Maipú">Maipú</option>
+                        <option value="San Bernardo">San Bernardo</option>
+                        <option value="Providencia">Providencia</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="fecha-despacho">Fecha Programada:</label>
+                    <input type="date" id="fecha-despacho">
+                </div>
+
+                <div id="error-msg" class="error-msg"></div>
+                <button type="submit" class="btn-primary">Registrar Despacho</button>
+            </form>
+        </section>
+
+        <section class="card mt-2">
+            <h2>Despachos Registrados</h2>
+            <table id="tabla-despachos">
+                <thead>
+                    <tr>
+                        <th>N° Orden</th>
+                        <th>Dirección</th>
+                        <th>Comuna</th>
+                        <th>Fecha</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Se llena dinámicamente -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <!-- Modal de Confirmación -->
+    <div id="modal-confirmacion" class="modal">
+        <div class="modal-content">
+            <h3>¡Despacho Registrado!</h3>
+            <p id="modal-texto"></p>
+            <button id="btn-cerrar-modal" class="btn-primary">Aceptar</button>
+        </div>
     </div>
-  </nav>
 
-  <main class="contenido">
-    <h1>Despacho</h1>
-    <p>Registra y controla los despachos de productos.</p>
+    <script src="despacho.js"></script>
 
-    <!-- FORMULARIO: novalidate para validar nosotros con JS -->
-    <section class="tarjeta">
-      <h2>Registrar despacho</h2>
-      <form id="form-despacho" novalidate>
-
-        <div class="campo">
-          <label for="receptor">Receptor</label>
-          <input type="text" id="receptor" placeholder="Ej: Juan Pérez">
-          <small class="error" id="error-receptor"></small>
-        </div>
-
-        <div class="campo">
-          <label for="producto">Producto</label>
-          <input type="text" id="producto" placeholder="Ej: Martillo">
-          <small class="error" id="error-producto"></small>
-        </div>
-
-        <div class="campo">
-          <label for="cantidad">Cantidad</label>
-          <input type="number" id="cantidad" placeholder="Ej: 5">
-          <small class="error" id="error-cantidad"></small>
-        </div>
-
-        <div class="campo">
-          <label for="direccion">Dirección de entrega</label>
-          <input type="text" id="direccion" placeholder="Ej: Av. Principal 123">
-          <small class="error" id="error-direccion"></small>
-        </div>
-
-        <div class="campo">
-          <label for="fecha">Fecha de entrega</label>
-          <input type="date" id="fecha">
-          <small class="error" id="error-fecha"></small>
-        </div>
-
-        <div class="campo">
-          <label for="estado">Estado</label>
-          <select id="estado">
-            <option value="Pendiente">Pendiente</option>
-            <option value="En ruta">En ruta</option>
-            <option value="Entregado">Entregado</option>
-          </select>
-          <small class="error" id="error-estado"></small>
-        </div>
-
-        <button type="submit" class="btn">Guardar despacho</button>
-      </form>
-    </section>
-
-    <!-- TABLA: la llena JavaScript con lo guardado en localStorage -->
-    <section class="tarjeta">
-      <h2>Listado de despachos</h2>
-      <div class="tabla-scroll">
-        <table>
-          <thead>
-            <tr>
-              <th>Receptor</th><th>Producto</th><th>Cantidad</th>
-              <th>Dirección</th><th>Fecha</th><th>Estado</th><th>Acciones</th>
-            </tr>
-          </thead>
-          <tbody id="tabla-despachos"></tbody>
-        </table>
-      </div>
-    </section>
-  </main>
-
-  <script src="despacho.js"></script>
 </body>
 </html>
