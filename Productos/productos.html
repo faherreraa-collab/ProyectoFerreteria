@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos - Ferretería</title>
+    <link rel="stylesheet" href="../dashboard.css">
+
+    <link rel="stylesheet" href="productos.css">
+</head>
+<body>
+    <div class="dashboard-layout">
+        <!-- Menú Lateral Vertical -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>FerroStock</h2>
+                <p class="user-role">Módulo Productos</p>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="../dashboard.html" class="nav-item">🏠 Inicio / Dashboard</a>
+                <a href="productos.html" class="nav-item active">📦 Productos</a>
+                <a href="../Inventario/inventario.html" class="nav-item">🏭 Inventario</a>
+                <a href="../Despacho/despacho.html" class="nav-item">🚚 Despachos</a>
+                <a href="../Servicios/servicios.html" class="nav-item">🛠️ Servicios</a>
+                <a href="../Reporte/reporte.html" class="nav-item">📊 Reportes</a>
+                <a href="../Usuarios/usuarios.html" class="nav-item">👥 Usuarios</a>
+            </nav>
+        </aside>
+
+        <!-- Contenido Módulo -->
+        <main class="main-content">
+            <section class="card">
+            <h2>Agregar Nuevo Producto</h2>
+            <form id="form-producto">
+                <div class="form-group">
+                    <label for="prod-nombre">Nombre del Producto:</label>
+                    <input type="text" id="prod-nombre" placeholder="Martillo Galponero 16oz">
+                </div>
+                <div class="form-group">
+                    <label for="prod-categoria">Categoría:</label>
+                    <select id="prod-categoria">
+                        <option value="">-- Seleccionar --</option>
+                        <option value="Herramientas Manuales">Herramientas Manuales</option>
+                        <option value="Materiales de Construcción">Materiales de Construcción</option>
+                        <option value="Electricidad y Gas">Electricidad y Gas</option>
+                        <option value="Pinturas">Pinturas</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="prod-precio">Precio ($):</label>
+                    <input type="number" id="prod-precio" placeholder="12990">
+                </div>
+                <div class="form-group">
+                    <label for="prod-stock">Stock Inicial:</label>
+                    <input type="number" id="prod-stock" placeholder="25">
+                </div>
+                <div id="error-msg" class="error-msg"></div>
+                <button type="submit" class="btn-primary">Guardar Producto</button>
+            </form>
+        </section>
+
+        <section class="card mt-2">
+            <h2>Productos Registrados</h2>
+            <div id="grid-productos" class="grid-productos"></div>
+        </section>
+    </main>
+
+    <div id="modal-producto" class="modal">
+        <div class="modal-content">
+            <h3>Producto Registrado</h3>
+            <p id="modal-texto"></p>
+            <button id="btn-cerrar-modal" class="btn-primary">Aceptar</button>
+        </div>
+    </div>
+
+    <script src="productos.js"></script>
+</body>
+</html>
