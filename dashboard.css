@@ -1,71 +1,214 @@
-* {
+* { 
+    box-sizing: border-box; 
+    margin: 0; 
+    padding: 0; 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+}
+
+body { 
+    background-color: #f4f6f9; 
+    color: #333; 
+    height: 100vh; 
+    overflow: hidden; 
+}
+
+.dashboard-layout { 
+    display: flex;
+    height: 100vh; 
+}
+
+/* Sidebar Vertical */
+/* Configuración fija del Sidebar */
+.sidebar {
+    width: 250px;
+    height: 100vh; /* Ocupa siempre el 100% del alto de pantalla */
+    background: #2c3e50;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
     box-sizing: border-box;
 }
 
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f4f6f8;
-}
-
-
-/* BARRA LATERAL (SOLO EL ESTILO) */
-
-.sidebar {
-    width: 240px;
-    height: 100vh;
-
-    background-color: #1e293b;
-    color: white;
-
-    position: fixed;
-    top: 0;
-    left: 0;
-
-    padding: 25px 20px;
-}
-
-.sidebar h2 {
+/* Encabezado superior fijo */
+.sidebar-header {
+    padding: 1.5rem;
+    background: #1a252f;
     text-align: center;
-    margin-bottom: 40px;
+    border-bottom: 1px solid #34495e;
+    flex-shrink: 0; /* Impide que se comprima */
 }
 
+.sidebar-header h2 { 
+    font-size: 1.2rem; 
+    color: #ecf0f1; 
+}
 
-/* enlances */
+.user-role { 
+    font-size: 0.85rem; 
+    color: #27ae60; 
+    margin-top: 0.3rem; 
+    font-weight: bold; 
+}
 
-.menu {
+/* Área del Menú de Navegación */
+.sidebar-nav {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    padding: 1rem 0;
+    flex-grow: 1; /* Ocupa todo el espacio disponible hacia abajo */
+    overflow-y: auto; /* Si hay muchos elementos, habilita scroll interno */
 }
 
-.menu a {
-    color: white;
-    text-decoration: none;
-
-    padding: 12px;
-
-    border-radius: 8px;
+.nav-item { 
+    color: #bdc3c7; 
+    text-decoration: none; 
+    padding: 0.8rem 1.5rem; 
+    font-size: 0.95rem; 
+    display: flex; 
+    align-items: center; 
+    gap: 0.8rem; 
+    transition: background 0.2s, color 0.2s; 
 }
 
-.menu a:hover {
-    background-color: #334155;
+.nav-item:hover, .nav-item.active { 
+    background: #34495e; 
+    color: white; 
+    border-left: 4px solid #27ae60; 
 }
 
-
-/* contenido main */
-
-.contenido {
-    margin-left: 240px;
-    padding: 40px;
+/* Footer del Sidebar */
+.sidebar-footer {
+    padding: 1rem;
+    border-top: 1px solid #34495e;
+    margin-top: auto; /* Empuja el botón al fondo cuando exista */
+    flex-shrink: 0;
 }
 
-.contenido h1 {
-    margin-bottom: 10px;
+.btn-logout { 
+    width: 100%; 
+    background: #e74c3c; 
+    color: white; 
+    border: none; 
+    padding: 0.6rem; 
+    border-radius: 4px; 
+    cursor: pointer; 
+    font-weight: bold; 
 }
 
-.contenido>p {
-    color: #64748b;
-    margin-bottom: 30px;
+.btn-logout:hover { 
+    background: #c0392b; 
 }
 
+/* Contenido Principal */
+.main-content { 
+    flex-grow: 1; 
+    padding: 2rem; 
+    overflow-y: auto; 
+}
+
+.top-bar { 
+    margin-bottom: 1.5rem; 
+    border-bottom: 2px solid #e2e8f0; 
+    padding-bottom: 0.5rem; 
+}
+
+.top-bar h1 { 
+    color: #2c3e50; 
+    font-size: 1.6rem; 
+}
+
+/* Métricas */
+.metrics-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+    gap: 1.2rem; 
+}
+
+.metric-card { 
+    background: white; 
+    padding: 1.5rem; 
+    border-radius: 8px; 
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05); 
+    text-align: center; 
+    border-top: 4px solid #27ae60;
+}
+
+.metric-card h3 { 
+    font-size: 0.85rem; 
+    color: #7f8c8d; 
+    text-transform: uppercase; 
+    margin-bottom: 0.5rem; 
+}
+
+.metric-card p { 
+    font-size: 2rem; 
+    font-weight: bold; 
+    color: #2c3e50; 
+}
+
+.welcome-box { 
+    background: white; 
+    padding: 1.5rem; 
+    border-radius: 8px; 
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05); 
+    margin-top: 1.5rem; 
+}
+
+.welcome-box h2 { 
+    color: #2c3e50; 
+    margin-bottom: 0.5rem; 
+    font-size: 1.2rem; 
+}
+
+/* Modal */
+.modal { 
+    display: none; 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+    background: rgba(0,0,0,0.5); 
+    justify-content: center; 
+    align-items: center; 
+}
+
+.modal-content { 
+    background: white; 
+    padding: 2rem; 
+    border-radius: 8px; 
+    text-align: center; 
+    max-width: 350px; 
+}
+
+.modal-actions { 
+    display: flex; 
+    gap: 1rem; 
+    justify-content: center; 
+    margin-top: 1.5rem; 
+}
+
+.btn-primary { 
+    background: #3498db; 
+    color: white; 
+    border: none; 
+    padding: 0.6rem 1.2rem; 
+    border-radius: 4px; 
+    cursor: pointer; 
+    font-weight: bold; 
+}
+
+.btn-primary.danger { 
+    background: #e74c3c; 
+}
+
+.btn-secondary { 
+    background: #95a5a6; 
+    color: white; 
+    border: none; 
+    padding: 0.6rem 1.2rem; 
+    border-radius: 4px; 
+    cursor: pointer; 
+    font-weight: bold; 
+}
