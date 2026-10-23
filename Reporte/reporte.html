@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de Reportes - Ferretería</title>
+    <link rel="stylesheet" href="reporte.css">
+    <link rel="stylesheet" href="../dashboard.css">
+</head>
+<body>
+    <div class="dashboard-layout">
+        <!-- Menú Lateral Vertical -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>FerroStock</h2>
+                <p class="user-role">Módulo Reportes</p>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="../dashboard.html" class="nav-item">🏠 Inicio / Dashboard</a>
+                <a href="../Productos/productos.html" class="nav-item">📦 Productos</a>
+                <a href="../Inventario/inventario.html" class="nav-item">🏭 Inventario</a>
+                <a href="../Despacho/despacho.html" class="nav-item">🚚 Despachos</a>
+                <a href="../Servicios/servicios.html" class="nav-item">🛠️ Servicios</a>
+                <a href="reporte.html" class="nav-item active">📊 Reportes</a>
+                <a href="../Usuarios/usuarios.html" class="nav-item">👥 Usuarios</a>
+            </nav>
+        </aside>
+
+    <!-- Contenido Principal -->
+        <main class="main-content">
+            <header class="top-bar">
+                <h1>Centro de Reportes Estadísticos</h1>
+            </header>
+
+            <!-- Mensaje de Bienvenida y Selector -->
+            <section class="welcome-box">
+                <h2>Bienvenido al Generador de Informes</h2>
+                <p>Seleccione el tipo de reporte que desea consultar para visualizar las métricas y datos proyectados del sistema.</p>
+                
+                <form id="form-selector-reporte" class="selector-form">
+                    <div class="form-group-inline">
+                        <label for="tipo-reporte"><strong>Tipo de Reporte:</strong></label>
+                        <select id="tipo-reporte">
+                            <option value="">-- Seleccione un reporte --</option>
+                            <option value="ventas">Ventas Realizadas</option>
+                            <option value="productos_vendidos">Productos Más Vendidos</option>
+                            <option value="compras_inventario">Productos Comprados / Ingresos</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group-inline">
+                        <label for="rango-fecha"><strong>Rango de Tiempo:</strong></label>
+                        <select id="rango-fecha">
+                            <option value="">-- Seleccione Rango --</option>
+                            <option value="7dias">Últimos 7 días</option>
+                            <option value="mes">Este Mes</option>
+                            <option value="anio">Año en Curso</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group-inline">
+                        <label for="formato-export"><strong>Formato Proyectado:</strong></label>
+                        <select id="formato-export">
+                            <option value="">-- Formato --</option>
+                            <option value="vista">Vista en Pantalla</option>
+                            <option value="pdf">Documento PDF</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn-primary">Generar Reporte</button>
+                </form>
+                <p id="error-msg" class="error-msg"></p>
+            </section>
+
+            <!-- Área donde se despliega el informe simulado -->
+            <section id="area-reporte" class="report-results mt-2">
+                <div id="placeholder-reporte" class="empty-state">
+                    📌 Seleccione las opciones de arriba y haga clic en "Generar Reporte" para ver los datos.
+                </div>
+                <div id="contenido-reporte" class="report-card" style="display: none;">
+                    <div class="report-header">
+                        <h3 id="rep-titulo">Título del Reporte</h3>
+                        <span id="rep-fecha-generacion" class="report-badge">--</span>
+                    </div>
+                    <div id="rep-kpi-grid" class="kpi-grid"></div>
+                    <div id="rep-tabla-container" class="table-responsive"></div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Modal Informativo -->
+    <div id="modal-reporte" class="modal">
+        <div class="modal-content">
+            <h3 id="modal-titulo">Procesando Reporte</h3>
+            <p id="modal-texto"></p>
+            <button id="btn-cerrar-modal" class="btn-primary">Aceptar</button>
+        </div>
+    </div>
+
+    <script src="reporte.js"></script>
+</body>
+</html>
