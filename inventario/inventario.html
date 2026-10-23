@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventario - Ferretería</title>
+    <link rel="stylesheet" href="inventario.css">
+    <link rel="stylesheet" href="../dashboard.css">
+</head>
+<body>
+    <div class="dashboard-layout">
+        <!-- Menú Lateral Vertical -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>FerroStock</h2>
+                <p class="user-role">Módulo Inventario</p>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="../dashboard.html" class="nav-item">🏠 Inicio / Dashboard</a>
+                <a href="../Productos/productos.html" class="nav-item">📦 Productos</a>
+                <a href="inventario.html" class="nav-item active">🏭 Inventario</a>
+                <a href="../Despacho/despacho.html" class="nav-item">🚚 Despachos</a>
+                <a href="../Servicios/servicios.html" class="nav-item">🛠️ Servicios</a>
+                <a href="../Reporte/reporte.html" class="nav-item">📊 Reportes</a>
+                <a href="../Usuarios/usuarios.html" class="nav-item">👥 Usuarios</a>
+            </nav>
+        </aside>
+
+    <main class="container">
+        <section class="card">
+            <h2>Ajustar Stock de Inventario</h2>
+            <form id="form-inventario">
+                <div class="form-group">
+                    <label for="inv-codigo">Código del Artículo (Ej: MAT-01):</label>
+                    <input type="text" id="inv-codigo" placeholder="MAT-01">
+                </div>
+                <div class="form-group">
+                    <label for="inv-bodega">Bodega de Almacenamiento:</label>
+                    <select id="inv-bodega">
+                        <option value="">-- Seleccionar Bodega --</option>
+                        <option value="Bodega Central">Bodega Central</option>
+                        <option value="Bodega Norte">Bodega Norte</option>
+                        <option value="Pasillo Principal">Pasillo Principal</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="inv-cantidad">Cantidad a Ingresar/Ajustar:</label>
+                    <input type="number" id="inv-cantidad" placeholder="10">
+                </div>
+                <div class="form-group">
+                    <label for="inv-responsable">Nombre del Responsable:</label>
+                    <input type="text" id="inv-responsable" placeholder="Carlos Gómez">
+                </div>
+                <div id="error-msg" class="error-msg"></div>
+                <button type="submit" class="btn-primary">Registrar en Inventario</button>
+            </form>
+        </section>
+
+        <section class="card mt-2">
+            <h2>Movimientos Registrados</h2>
+            <ul id="lista-inventario"></ul>
+        </section>
+    </main>
+
+    <div id="modal-inventario" class="modal">
+        <div class="modal-content">
+            <h3>Movimiento Registrado</h3>
+            <p id="modal-texto"></p>
+            <button id="btn-cerrar-modal" class="btn-primary">Aceptar</button>
+        </div>
+    </div>
+
+    <script src="inventario.js"></script>
+</body>
+</html>

@@ -1,20 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
-
+    <title>Dashboard - Ferretería</title>
     <link rel="stylesheet" href="dashboard.css">
 </head>
-
 <body>
+    <div class="dashboard-layout">
+        <!-- Barra de Menú Lateral Vertical -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2>FerroStock</h2>
+                <p id="user-display" class="user-role">Cargando...</p>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-item active">🏠 Inicio / Dashboard</a>
+                <a href="Productos/productos.html" class="nav-item">📦 Productos</a>
+                <a href="Inventario/inventario.html" class="nav-item">🏭 Inventario</a>
+                <a href="Despacho/despacho.html" class="nav-item">🚚 Despachos</a>
+                <a href="Servicios/servicios.html" class="nav-item">🛠️ Servicios</a>
+                <a href="Reporte/reporte.html" class="nav-item">📊 Reportes</a>
+                <a href="Usuarios/usuarios.html" class="nav-item">👥 Usuarios</a>
+            </nav>
+            <div class="sidebar-footer">
+                <button id="btn-logout" class="btn-logout">Cerrar Sesión</button>
+            </div>
+        </aside>
 
-    <!-- Menú lateral -->
-
-    <nav class="sidebar">
-        
-        <h2>Sistema de Ferreteria</h2>
+        <!-- Contenido Principal -->
+        <main class="main-content">
+            <header class="top-bar">
+                <h1>Panel de Control</h1>
+            </header>
 
         <div class="menu">
             <a href="dashboard.html">Inicio</a>
@@ -33,11 +51,25 @@
     <!-- Contenido principal -->
     <main class="contenido">
 
-        <h1>Dashboard</h1>
+            <section class="welcome-box mt-2">
+                <h2>Bienvenido al Sistema de Gestión</h2>
+                <p>Selecciona un módulo en el menú lateral izquierdo para gestionar el inventario, productos, despachos o usuarios de la ferretería.</p>
+            </section>
+        </main>
+    </div>
 
-        <p>Bienvenido al panel de inicio.</p>
+    <!-- Modal Cerrar Sesión -->
+    <div id="modal-logout" class="modal">
+        <div class="modal-content">
+            <h3>Cerrar Sesión</h3>
+            <p>¿Estás seguro de que deseas salir del sistema?</p>
+            <div class="modal-actions">
+                <button id="btn-confirm-logout" class="btn-primary danger">Salir</button>
+                <button id="btn-cancel-logout" class="btn-secondary">Cancelar</button>
+            </div>
+        </div>
+    </div>
 
-    </main>
-    
+    <script src="dashboard.js"></script>
 </body>
 </html>
