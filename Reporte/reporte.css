@@ -1,114 +1,183 @@
 
+/* Contenedor de filtros: permite ubicar los controles en una o varias filas. */
 .selector-form {
+    /* Distribuye los controles horizontalmente y los envuelve si falta espacio. */
     display: flex;
     flex-wrap: wrap;
+    /* Separa cada control para que no queden pegados entre sí. */
     gap: 1rem;
+    /* Alinea la base de los campos aunque tengan distinta altura. */
     align-items: flex-end;
+    /* Deja espacio respecto al contenido anterior. */
     margin-top: 1rem;
+    /* Usa un fondo neutro para distinguir el área de filtros. */
     background: #f8f9fa;
+    /* Agrega espacio entre los controles y el borde del contenedor. */
     padding: 1rem;
+    /* Suaviza las esquinas del panel. */
     border-radius: 6px;
+    /* Delimita el panel con un borde sutil. */
     border: 1px solid #e2e8f0;
 }
 
+/* Grupo vertical que contiene una etiqueta y su control asociado. */
 .form-group-inline {
+    /* Coloca los elementos del grupo uno debajo del otro. */
     display: flex;
     flex-direction: column;
+    /* Mantiene una separación pequeña entre etiqueta y control. */
     gap: 0.3rem;
+    /* Permite que el campo crezca para repartir el espacio disponible. */
     flex: 1;
+    /* Evita que el campo se comprima hasta resultar difícil de usar. */
     min-width: 180px;
 }
 
+/* Apariencia de las listas desplegables dentro de los filtros. */
 .form-group-inline select {
+    /* Mejora el espacio interior y la facilidad para seleccionar una opción. */
     padding: 0.6rem;
+    /* Define un contorno visible para el control. */
     border: 1px solid #ccc;
+    /* Redondea ligeramente las esquinas del desplegable. */
     border-radius: 4px;
 }
 
+/* Mensaje visible cuando ocurre un error al generar o mostrar el reporte. */
 .error-msg {
+    /* El rojo destaca el mensaje como una advertencia o error. */
     color: #e74c3c;
+    /* Refuerza la importancia del texto del error. */
     font-weight: bold;
+    /* Separa el mensaje del elemento que aparece encima. */
     margin-top: 0.8rem;
+    /* Mantiene el mensaje legible sin competir con el contenido principal. */
     font-size: 0.9rem;
 }
 
-/* Resultados */
+/* Estilos de los resultados del reporte. */
+/* Estado vacío mostrado cuando todavía no hay resultados para presentar. */
 .empty-state {
+    /* Mantiene una superficie clara detrás del mensaje. */
     background: white;
+    /* Da espacio alrededor del texto para destacar el estado. */
     padding: 2rem;
+    /* Centra el mensaje dentro del espacio disponible. */
     text-align: center;
+    /* Redondea las esquinas para mantener el estilo de las tarjetas. */
     border-radius: 8px;
+    /* Usa un tono gris para comunicar que no hay datos activos. */
     color: #7f8c8d;
+    /* El borde discontinuo diferencia este estado de un reporte cargado. */
     border: 2px dashed #cbd5e1;
 }
 
+/* Tarjeta principal que agrupa la información de un reporte generado. */
 .report-card {
+    /* Fondo blanco para separar visualmente la tarjeta de la página. */
     background: white;
+    /* Crea espacio interno entre los datos y los bordes. */
     padding: 1.5rem;
+    /* Suaviza el contorno de la tarjeta. */
     border-radius: 8px;
+    /* Añade profundidad sutil sin oscurecer el diseño. */
     box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
 
+/* Cabecera de la tarjeta: título y otros datos quedan en extremos opuestos. */
 .report-header {
+    /* Organiza los elementos de la cabecera en una fila. */
     display: flex;
+    /* Separa el título y el elemento secundario a los lados. */
     justify-content: space-between;
+    /* Alinea verticalmente los elementos de la cabecera. */
     align-items: center;
+    /* Traza una línea divisoria bajo la cabecera. */
     border-bottom: 2px solid #ecf0f1;
+    /* Evita que el contenido toque la línea divisoria. */
     padding-bottom: 0.8rem;
+    /* Separa la cabecera de la sección que contiene los resultados. */
     margin-bottom: 1rem;
 }
 
+/* Color del título dentro de la cabecera del reporte. */
 .report-header h3 {
     color: #2c3e50;
 }
 
+/* Etiqueta compacta para identificar el tipo o estado del reporte. */
 .report-badge {
+    /* Fondo suave para distinguir la etiqueta del título. */
     background: #e2e8f0;
+    /* Mantiene el texto separado de los bordes de la etiqueta. */
     padding: 0.3rem 0.6rem;
+    /* Da forma de insignia al elemento. */
     border-radius: 4px;
+    /* Tamaño reducido para que la etiqueta sea secundaria. */
     font-size: 0.8rem;
+    /* Contraste de texto adecuado sobre el fondo claro. */
     color: #475569;
 }
 
+/* Cuadrícula adaptable para distribuir las tarjetas de indicadores. */
 .kpi-grid {
+    /* Crea columnas que se ajustan al ancho disponible y tienen un mínimo. */
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    /* Separa las tarjetas tanto horizontal como verticalmente. */
     gap: 1rem;
+    /* Deja espacio antes de la tabla u otro contenido siguiente. */
     margin-bottom: 1.5rem;
 }
 
+/* Tarjeta individual de un indicador clave (KPI). */
 .kpi-box {
+    /* Fondo tenue para diferenciar cada indicador de la tarjeta principal. */
     background: #f1f5f9;
+    /* Espacio interno para separar el texto de los bordes. */
     padding: 1rem;
+    /* Mantiene las esquinas coherentes con los demás componentes. */
     border-radius: 6px;
+    /* Franja azul para resaltar visualmente el indicador. */
     border-left: 4px solid #3498db;
+    /* Organiza la etiqueta y el valor en una columna. */
     display: flex;
     flex-direction: column;
 }
 
+/* Etiqueta descriptiva del indicador; se presenta en mayúsculas y tono suave. */
 .kpi-box small {
     color: #64748b;
     text-transform: uppercase;
     font-size: 0.75rem;
 }
 
+/* Valor principal del indicador, con mayor tamaño y contraste. */
 .kpi-box strong {
     font-size: 1.3rem;
     color: #1e293b;
+    /* Separa ligeramente el valor de su etiqueta descriptiva. */
     margin-top: 0.2rem;
 }
 
+/* La tabla ocupa todo el ancho del contenedor de resultados. */
 .table-responsive table {
     width: 100%;
+    /* Une los bordes de celdas contiguas para una cuadrícula uniforme. */
     border-collapse: collapse;
 }
 
+/* Estilo compartido por encabezados y celdas del cuerpo de la tabla. */
 .table-responsive th, .table-responsive td {
+    /* Delimita cada celda con un borde fino. */
     border: 1px solid #e2e8f0;
+    /* Añade espacio alrededor de los datos de cada celda. */
     padding: 0.75rem;
+    /* Facilita recorrer y comparar la información de la tabla. */
     text-align: left;
 }
 
+/* Encabezados de columna: fondo claro y texto con buen contraste. */
 .table-responsive th {
     background-color: #f8fafc;
     color: #334155;
