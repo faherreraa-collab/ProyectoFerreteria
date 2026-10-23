@@ -182,3 +182,22 @@
     background-color: #f8fafc;
     color: #334155;
 }
+
+/*
+Glosario de conceptos utilizados en esta hoja de estilos:
+CSS: lenguaje que define la apariencia visual de los elementos HTML.
+Selector: patrón que identifica los elementos HTML a los que se aplican reglas.
+Propiedad: característica visual que se quiere modificar, como color o margen.
+Valor: configuración asignada a una propiedad, como 1rem o white.
+Clase: nombre precedido por punto en CSS que permite aplicar estilos a varios elementos.
+Flexbox: modelo de distribución para organizar elementos en una fila o columna.
+Grid: modelo de diseño que distribuye elementos en filas y columnas.
+Padding: espacio interior entre el contenido de un elemento y su borde.
+Margin: espacio exterior que separa un elemento de otros.
+Border: línea que rodea el contenido y el espacio interior de un elemento.
+Border-radius: propiedad que redondea las esquinas de un elemento.
+Box-shadow: propiedad que agrega una sombra alrededor de un elemento.
+Gap: espacio entre elementos dentro de una distribución Flexbox o Grid.
+KPI: indicador clave de rendimiento que resume una métrica importante.
+Media adaptable: diseño que ajusta sus columnas al espacio disponible mediante auto-fit y minmax.
+*/
