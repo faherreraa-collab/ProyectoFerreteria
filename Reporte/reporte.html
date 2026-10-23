@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <!-- Define la codificación y adapta la página a distintos tamaños de pantalla. -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Nombre que aparece en la pestaña del navegador. -->
     <title>Generador de Reportes - Ferretería</title>
+    <!-- Estilos propios de reportes y estilos compartidos del dashboard. -->
     <link rel="stylesheet" href="reporte.css">
     <link rel="stylesheet" href="../dashboard.css">
 </head>
 <body>
+    <!-- Estructura general con navegación lateral y contenido principal. -->
     <div class="dashboard-layout">
         <!-- Menú Lateral Vertical -->
         <aside class="sidebar">
@@ -15,19 +19,21 @@
                 <h2>FerroStock</h2>
                 <p class="user-role">Módulo Reportes</p>
             </div>
+            <!-- Enlaces para navegar entre las secciones de la aplicación. -->
             <nav class="sidebar-nav">
-                <a href="../dashboard.html" class="nav-item">🏠 Inicio / Dashboard</a>
-                <a href="../Productos/productos.html" class="nav-item">📦 Productos</a>
-                <a href="../Inventario/inventario.html" class="nav-item">🏭 Inventario</a>
-                <a href="../Despacho/despacho.html" class="nav-item">🚚 Despachos</a>
-                <a href="../Servicios/servicios.html" class="nav-item">🛠️ Servicios</a>
-                <a href="reporte.html" class="nav-item active">📊 Reportes</a>
-                <a href="../Usuarios/usuarios.html" class="nav-item">👥 Usuarios</a>
+                <a href="../dashboard.html" class="nav-item">Inicio / Dashboard</a>
+                <a href="../Productos/productos.html" class="nav-item">Productos</a>
+                <a href="../Inventario/inventario.html" class="nav-item">Inventario</a>
+                <a href="../Despacho/despacho.html" class="nav-item">Despachos</a>
+                <a href="../Servicios/servicios.html" class="nav-item">Servicios</a>
+                <a href="reporte.html" class="nav-item active">Reportes</a>
+                <a href="../Usuarios/usuarios.html" class="nav-item">Usuarios</a>
             </nav>
         </aside>
 
     <!-- Contenido Principal -->
         <main class="main-content">
+            <!-- Encabezado principal de la sección. -->
             <header class="top-bar">
                 <h1>Centro de Reportes Estadísticos</h1>
             </header>
@@ -37,7 +43,9 @@
                 <h2>Bienvenido al Generador de Informes</h2>
                 <p>Seleccione el tipo de reporte que desea consultar para visualizar las métricas y datos proyectados del sistema.</p>
                 
+                <!-- Formulario con los filtros necesarios para generar el reporte. -->
                 <form id="form-selector-reporte" class="selector-form">
+                    <!-- Permite elegir qué conjunto de datos se desea consultar. -->
                     <div class="form-group-inline">
                         <label for="tipo-reporte"><strong>Tipo de Reporte:</strong></label>
                         <select id="tipo-reporte">
@@ -48,6 +56,7 @@
                         </select>
                     </div>
 
+                    <!-- Define el período que se utilizará en la consulta. -->
                     <div class="form-group-inline">
                         <label for="rango-fecha"><strong>Rango de Tiempo:</strong></label>
                         <select id="rango-fecha">
@@ -58,6 +67,7 @@
                         </select>
                     </div>
 
+                    <!-- Permite seleccionar el formato de presentación solicitado. -->
                     <div class="form-group-inline">
                         <label for="formato-export"><strong>Formato Proyectado:</strong></label>
                         <select id="formato-export">
@@ -67,21 +77,25 @@
                         </select>
                     </div>
 
+                    <!-- Envía las opciones para iniciar la generación del reporte. -->
                     <button type="submit" class="btn-primary">Generar Reporte</button>
                 </form>
+                <!-- El JavaScript muestra aquí los mensajes de validación. -->
                 <p id="error-msg" class="error-msg"></p>
             </section>
 
-            <!-- Área donde se despliega el informe simulado -->
+            <!-- Área donde se despliega el informe simulado. -->
             <section id="area-reporte" class="report-results mt-2">
                 <div id="placeholder-reporte" class="empty-state">
-                    📌 Seleccione las opciones de arriba y haga clic en "Generar Reporte" para ver los datos.
+                    Seleccione las opciones de arriba y haga clic en "Generar Reporte" para ver los datos.
                 </div>
+                <!-- Se muestra cuando hay un reporte generado. -->
                 <div id="contenido-reporte" class="report-card" style="display: none;">
                     <div class="report-header">
                         <h3 id="rep-titulo">Título del Reporte</h3>
                         <span id="rep-fecha-generacion" class="report-badge">--</span>
                     </div>
+                    <!-- Contenedores que JavaScript completa con indicadores y tabla. -->
                     <div id="rep-kpi-grid" class="kpi-grid"></div>
                     <div id="rep-tabla-container" class="table-responsive"></div>
                 </div>
@@ -90,6 +104,7 @@
     </div>
 
     <!-- Modal Informativo -->
+    <!-- Ventana de confirmación que se muestra después de generar el reporte. -->
     <div id="modal-reporte" class="modal">
         <div class="modal-content">
             <h3 id="modal-titulo">Procesando Reporte</h3>
@@ -98,6 +113,29 @@
         </div>
     </div>
 
+    <!-- Carga el código que valida el formulario y actualiza los resultados. -->
     <script src="reporte.js"></script>
+
+    <!-- Glosario de conceptos utilizados en este archivo:
+         HTML: lenguaje de marcado que organiza el contenido de una página web.
+         Etiqueta: elemento delimitado por signos < y > que define contenido o estructura.
+         Atributo: propiedad escrita en una etiqueta para proporcionar información adicional.
+         lang: atributo que indica el idioma principal del documento.
+         meta: etiqueta que proporciona información sobre la página al navegador.
+         viewport: configuración que adapta el ancho de la página a la pantalla del dispositivo.
+         link: etiqueta que vincula recursos externos, como hojas de estilo CSS.
+         href: atributo que indica la dirección del recurso o página enlazada.
+         class: atributo que asigna una o más clases para aplicar estilos o identificar grupos.
+         id: identificador único que permite localizar un elemento específico.
+         nav: sección semántica destinada a enlaces de navegación.
+         main: elemento que contiene el contenido principal de la página.
+         section: elemento que agrupa contenido relacionado temáticamente.
+         Formulario: conjunto de controles que permite ingresar y enviar datos.
+         label: texto asociado a un control del formulario.
+         select / option: etiquetas que crean una lista desplegable y sus opciones.
+         button: elemento que representa un botón interactivo.
+         script: etiqueta que carga o contiene código JavaScript.
+         Comentario HTML: texto entre <!-- y --> que no se muestra como contenido de la página.
+         CSS: lenguaje que define la presentación visual de los elementos HTML. -->
 </body>
 </html>
